@@ -44,6 +44,8 @@ namespace DataFlowProcessing
             //     , new DataflowLinkOptions{PropagateCompletion = true}
             //     , s => true
             //     );
+            
+            //NOTE: NullPropagation blocks are required to handle all messages that fails through Predicate of above block
             //block1.LinkTo(DataflowBlock.NullTarget<string>());
 
             try
