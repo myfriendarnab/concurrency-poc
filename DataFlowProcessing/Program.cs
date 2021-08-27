@@ -22,11 +22,13 @@ namespace DataFlowProcessing
 
             transformAsPubSubHandler
                 .Next(collectInConcurrentBagHandler)
-                .Next(transformAsPubSubHandler);
+                .Next(transformActionFirstHandler);
 
             //await prg.TransFormActionFirstHandler();
             //await prg.CollectInConcurrentBagHandler();
-            await prg.TransformAsPubSubHandle();
+            //await prg.TransformAsPubSubHandle();
+
+            HandlerClient.Call(transformAsPubSubHandler, 1);
 
             Console.ReadLine();
         }

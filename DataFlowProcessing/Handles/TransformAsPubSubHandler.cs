@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using DataFlowProcessing.BlockHandlers;
 
 namespace DataFlowProcessing.Handles
@@ -10,6 +11,7 @@ namespace DataFlowProcessing.Handles
             if (request as string=="1")
             {
                 var transformAsPubSub = new TransformAsPubSub();
+                Console.WriteLine($"Inside {nameof(transformAsPubSub)}  processing");
                 await transformAsPubSub.TransformAsPubSubCall();
                 return Task.FromResult(request);
             }

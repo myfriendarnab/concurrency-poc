@@ -16,7 +16,7 @@ namespace DataFlowProcessing.BlockHandlers
                 await transformer.SendAsync(i);
             }
             transformer.Complete();
-            Console.WriteLine(transformer.OutputCount);
+            Console.WriteLine($"total output count:{transformer.OutputCount}");
             // Fails if here            // await transformer.Completion;            
             while (await transformer.OutputAvailableAsync())
             {
@@ -24,6 +24,7 @@ namespace DataFlowProcessing.BlockHandlers
                 Console.WriteLine($"Freda: {freda}");
             }
             // Succeeds here            
+            Console.WriteLine($"Freda: invocation completed");
             await transformer.Completion;
             Console.WriteLine("Finis!");
         }

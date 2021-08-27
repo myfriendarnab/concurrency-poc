@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using DataFlowProcessing.BlockHandlers;
 
 namespace DataFlowProcessing.Handles
@@ -7,9 +8,10 @@ namespace DataFlowProcessing.Handles
     {
         public override async Task<object> Handle(object request)
         {
-            if (request as string == "2")
+            if (request as string == "3")
             {
                 var transformActionFirst = new TransFormActionFirst();
+                Console.WriteLine($"Inside {nameof(transformActionFirst)}  processing");
                 await transformActionFirst.TransFormAction();
                 return Task.FromResult(request);
             }

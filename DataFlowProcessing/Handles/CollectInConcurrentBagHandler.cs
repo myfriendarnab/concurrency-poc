@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using DataFlowProcessing.BlockHandlers;
 
 namespace DataFlowProcessing.Handles
@@ -7,9 +8,10 @@ namespace DataFlowProcessing.Handles
     {
         public override async Task<object> Handle(object request)
         {
-            if (request as string == "3")
+            if (request as string == "2")
             {
                 var collectInConcurrentBag = new CollectInConcurrentBag();
+                Console.WriteLine($"Inside {nameof(collectInConcurrentBag)}  processing");
                 await collectInConcurrentBag.ActionCollectInConcurrentBag();
                 return Task.FromResult(request);
             }
